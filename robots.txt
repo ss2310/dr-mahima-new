@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+User-agent: Oai-SearchBot
+Allow: /
+
+Sitemap: https://drmahimasdentalcare.in/sitemap.xml
