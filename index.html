@@ -114,7 +114,8 @@
       <form id="hero-form" onsubmit="return false;" style="display:flex;flex-direction:column;gap:1rem">
         <input type="text" class="form-input" placeholder="Your Name" id="hero-name">
         <input type="tel" class="form-input" placeholder="Phone Number" id="hero-phone">
-          <label for="hero-issue" class="sr-only">Select your dental issue</label>
+         <select class="form-select" id="hero-issue">
+           <label for="hero-issue" class="sr-only">Select your dental issue</label>
         <select class="form-select" id="hero-issue">
           <option value="" disabled selected>Select Issue</option>
           <option value="Toothache / Pain">Toothache / Pain</option>
@@ -123,6 +124,18 @@
           <option value="Bleeding Gums">Bleeding Gums</option>
           <option value="Other Emergency">Other Emergency</option>
         </select>
+```
+
+**Fix 2: Create `_redirects`** — new file in root, paste this:
+```
+/index.html    /    301
+/pricing       /pricing/       301
+/about         /about/         301
+/contact       /contact/       301
+/services/dental-implants    /services/dental-implants/    301
+/services/root-canal         /services/root-canal/         301
+/services/braces-aligners    /services/braces-aligners/    301
+/services/teeth-whitening    /services/teeth-whitening/    301
         <button type="button" onclick="sendHeroForm()" class="btn btn-primary btn-full" style="height:3rem">Get Help Now</button>
       </form>
       <script>
