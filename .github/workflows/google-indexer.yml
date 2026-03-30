@@ -1,0 +1,28 @@
+name: Notify Google Indexing API
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  ping-google:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Google API Library
+        run: npm install googleapis
+
+      - name: Recreate Security Key
+        run: echo '${{ secrets.GOOGLE_INDEXING_KEY }}' > key.json
+
+      - name: Run Indexing Script
+        run: node index.js
