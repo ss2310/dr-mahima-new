@@ -94,19 +94,23 @@ document.querySelector('.wa-fab').addEventListener('click', function() {
   }
 });
 
-// Track hero form WhatsApp submission
-var originalSendHeroForm = sendHeroForm;
-sendHeroForm = function() {
-  if (typeof gtag === 'function') {
-    gtag('event', 'whatsapp_click', {
-      'button_type': 'hero_form'
+<!-- Load gtag.js (MISSING on this page!) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BHV637CK29"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Track "Book via WhatsApp Instead" button (id="waBtn")
+  var waBtn = document.getElementById('waBtn');
+  if (waBtn) {
+    waBtn.addEventListener('click', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'whatsapp_click', {
+          'button_type': 'book_page_wa_alt'
+        });
+      }
     });
   }
-  // Small delay to let the event fire before redirect
-  setTimeout(function() {
-    originalSendHeroForm();
-  }, 300);
-};
+});
 </script>
 
 </body>
