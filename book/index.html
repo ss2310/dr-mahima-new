@@ -56,7 +56,7 @@
 .form-success h2{font-family:'Oswald',sans-serif;color:#16a34a;font-size:1.5rem}
 .form-success p{color:var(--muted-fg);margin-top:0.75rem;line-height:1.7}
 </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BHV637CK29">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BHV637CK29"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -222,22 +222,7 @@
 </footer>
 
 <script>
-// Track floating WhatsApp button
-document.querySelector('.wa-fab').addEventListener('click', function() {
-  if (typeof gtag === 'function') {
-    gtag('event', 'whatsapp_click', {
-      'link_url': this.href,
-      'button_type': 'fab'
-    });
-  }
-});
-
-<!-- Load gtag.js (MISSING on this page!) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BHV637CK29"></script>
-
-<script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Track "Book via WhatsApp Instead" button (id="waBtn")
   var waBtn = document.getElementById('waBtn');
   if (waBtn) {
     waBtn.addEventListener('click', function() {
