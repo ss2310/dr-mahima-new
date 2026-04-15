@@ -221,14 +221,11 @@
   <p>&copy; 2026 Dr. Mahima's Dental Care. <a href="/" style="color:var(--primary)">Home</a> · <a href="/services/" style="color:var(--primary)">Services</a> · <a href="/pricing/" style="color:var(--primary)">Pricing</a> · <a href="/contact/" style="color:var(--primary)">Contact</a></p>
 </footer>
 
-<!-- Track WhatsApp clicks as conversion event -->
 <script>
 document.getElementById('waBtn').addEventListener('click', function() {
-  // Google Ads conversion tracking for WhatsApp clicks
   if (typeof gtag === 'function') {
-    gtag('event', 'conversion', {
-      'send_to': 'AW-17955432842', 
-      'event_callback': function() { return; }
+    gtag('event', 'whatsapp_click', {
+      'link_url': 'https://wa.me/917597747711'
     });
   }
 });
