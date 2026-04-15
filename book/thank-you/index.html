@@ -83,14 +83,30 @@
   <p>&copy; 2026 Dr. Mahima's Dental Care.</p>
 </footer>
 
-  <script>
-document.getElementById('waBtn').addEventListener('click', function() {
+<script>
+// Track floating WhatsApp button
+document.querySelector('.wa-fab').addEventListener('click', function() {
   if (typeof gtag === 'function') {
     gtag('event', 'whatsapp_click', {
-      'link_url': 'https://wa.me/917597747711'
+      'link_url': this.href,
+      'button_type': 'fab'
     });
   }
 });
+
+// Track hero form WhatsApp submission
+var originalSendHeroForm = sendHeroForm;
+sendHeroForm = function() {
+  if (typeof gtag === 'function') {
+    gtag('event', 'whatsapp_click', {
+      'button_type': 'hero_form'
+    });
+  }
+  // Small delay to let the event fire before redirect
+  setTimeout(function() {
+    originalSendHeroForm();
+  }, 300);
+};
 </script>
 
 </body>
