@@ -224,7 +224,8 @@ tbody tr:hover{background:rgba(217,68,82,0.04)}
 footer{background:var(--secondary);color:var(--secondary-fg)}
 .footer-grid{display:grid;gap:3rem;padding:4rem 0}
 @media(min-width:640px){.footer-grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:768px){.footer-grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:768px){.footer-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1024px){.footer-grid{grid-template-columns:repeat(5,1fr)}}
 footer h3{font-size:1.2rem;font-weight:700}
 footer h3 span{color:var(--primary)}
 footer h4{font-weight:700;font-size:1rem;margin-bottom:1rem}
