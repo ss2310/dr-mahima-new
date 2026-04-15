@@ -99,17 +99,17 @@ document.querySelector('.wa-fab').addEventListener('click', function() {
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Track "Book via WhatsApp Instead" button (id="waBtn")
-  var waBtn = document.getElementById('waBtn');
-  if (waBtn) {
-    waBtn.addEventListener('click', function() {
+  // Track "WhatsApp Us for Faster Confirmation" button
+  var waLinks = document.querySelectorAll('a[href*="wa.me"]');
+  waLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
       if (typeof gtag === 'function') {
         gtag('event', 'whatsapp_click', {
-          'button_type': 'book_page_wa_alt'
+          'button_type': 'thank_you_page'
         });
       }
     });
-  }
+  });
 });
 </script>
 
