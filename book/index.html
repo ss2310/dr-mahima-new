@@ -13,106 +13,134 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=optional" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <style>
-.book-hero{padding:5rem 0 2rem;background:linear-gradient(135deg,rgba(217,68,82,0.05) 0%,rgba(13,27,42,0.02) 50%,rgba(232,155,12,0.05) 100%)}
-@media(min-width:1024px){.book-hero{padding:5.5rem 0 2.5rem}}
-.book-grid{display:grid;gap:2rem;align-items:start}
-@media(min-width:768px){.book-grid{grid-template-columns:1fr 1fr;gap:3rem}}
-.book-left h1{font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:var(--secondary);line-height:1.15}
-@media(min-width:640px){.book-left h1{font-size:2.6rem}}
-.book-left h1 span{color:var(--primary)}
-.book-left .lead{font-size:1rem;color:var(--muted-fg);margin-top:0.75rem;line-height:1.7}
-.urgency-bar{display:flex;align-items:center;gap:0.5rem;margin-top:1.25rem;padding:0.6rem 1rem;background:rgba(217,68,82,0.08);border-radius:0.5rem;border-left:3px solid var(--primary)}
-.urgency-bar .pulse{width:8px;height:8px;border-radius:50%;background:var(--primary);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+/* ── Hero: CTA First ── */
+.book-hero{padding:4.5rem 0 2rem;background:linear-gradient(135deg,rgba(217,68,82,0.05) 0%,rgba(13,27,42,0.02) 50%,rgba(232,155,12,0.05) 100%)}
+@media(min-width:1024px){.book-hero{padding:5rem 0 2.5rem}}
+
+/* Mobile: single column, CTA block first. Desktop: two columns */
+.hero-layout{display:flex;flex-direction:column;gap:2rem}
+@media(min-width:768px){.hero-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}}
+
+/* CTA card — the star of the show */
+.cta-card{background:var(--bg);border:2px solid var(--primary);border-radius:1.25rem;padding:1.75rem;box-shadow:0 8px 30px rgba(217,68,82,0.1);text-align:center}
+@media(min-width:768px){order:2}
+.cta-card h1{font-family:'Oswald',sans-serif;font-size:1.6rem;font-weight:700;color:var(--secondary);line-height:1.2}
+@media(min-width:640px){.cta-card h1{font-size:1.8rem}}
+.cta-card h1 span{color:var(--primary)}
+.cta-card .cta-sub{font-size:0.9rem;color:var(--muted-fg);margin-top:0.5rem;line-height:1.5}
+.cta-card .cta-sub strong{color:var(--secondary)}
+
+/* Urgency inside CTA card */
+.cta-urgency{display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:1rem;padding:0.5rem 1rem;background:rgba(217,68,82,0.08);border-radius:0.5rem}
+.cta-urgency .pulse{width:8px;height:8px;border-radius:50%;background:var(--primary);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
-.urgency-bar p{font-size:0.85rem;font-weight:600;color:var(--secondary)}
-.trust-badges{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.25rem}
+.cta-urgency p{font-size:0.82rem;font-weight:600;color:var(--secondary)}
+
+/* Big CTA buttons */
+.cta-buttons{display:flex;flex-direction:column;gap:0.6rem;margin-top:1.25rem}
+.btn-wa-big{display:flex;align-items:center;justify-content:center;gap:0.6rem;width:100%;padding:1rem;background:#25D366;color:#fff;border:none;border-radius:0.6rem;font-family:'Oswald',sans-serif;font-weight:700;font-size:1.15rem;text-transform:uppercase;letter-spacing:0.03em;text-decoration:none;cursor:pointer;transition:background 0.2s,transform 0.1s}
+.btn-wa-big:hover{background:#1fba59}
+.btn-wa-big:active{transform:scale(0.98)}
+.btn-wa-big svg{width:1.4rem;height:1.4rem;fill:#fff}
+.btn-call-big{display:flex;align-items:center;justify-content:center;gap:0.5rem;width:100%;padding:0.85rem;background:var(--secondary);color:#fff;border:none;border-radius:0.6rem;font-family:'Oswald',sans-serif;font-weight:700;font-size:1.05rem;text-transform:uppercase;letter-spacing:0.03em;text-decoration:none;transition:background 0.2s}
+.btn-call-big:hover{background:#243756}
+.btn-call-big svg{width:1.1rem;height:1.1rem}
+
+/* Trust micro-text under buttons */
+.cta-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem;margin-top:1rem;padding-top:0.75rem;border-top:1px solid var(--border)}
+.cta-trust-item{display:flex;align-items:center;gap:0.25rem;font-size:0.72rem;color:var(--muted-fg)}
+.cta-trust-item svg{width:0.75rem;height:0.75rem;color:#16a34a;flex-shrink:0}
+
+/* Google rating inside CTA card */
+.cta-google{display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:0.75rem}
+.cta-google .g-icon{width:1.5rem;height:1.5rem;flex-shrink:0}
+.cta-google .stars{display:flex;gap:1px}
+.cta-google .stars svg{width:0.85rem;height:0.85rem;fill:#E89B0C}
+.cta-google .g-text{font-size:0.75rem;color:var(--muted-fg)}
+.cta-google .g-text strong{color:var(--secondary)}
+
+/* ── Left/bottom: Trust content ── */
+.trust-content{order:2}
+@media(min-width:768px){.trust-content{order:1}}
+.trust-content .logo-link{font-family:'Oswald',sans-serif;font-size:1.05rem;font-weight:700;color:var(--secondary);text-decoration:none}
+.trust-content .logo-link span{color:var(--primary)}
+
+/* Trust badges */
+.trust-badges{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem}
 .trust-badge{display:inline-flex;align-items:center;gap:0.35rem;background:var(--bg);border:1px solid var(--border);padding:0.35rem 0.7rem;border-radius:2rem;font-size:0.75rem;font-weight:600;color:var(--secondary)}
 .trust-badge svg{width:0.85rem;height:0.85rem;flex-shrink:0}
 .trust-badge .check{color:#16a34a}
 .trust-badge .shield{color:var(--primary)}
-.google-rating{display:flex;align-items:center;gap:0.75rem;margin-top:1.5rem;padding:1rem;background:var(--bg);border:1px solid var(--border);border-radius:0.75rem}
-.google-rating .g-icon{width:2rem;height:2rem;flex-shrink:0}
-.google-rating .stars{display:flex;gap:2px}
-.google-rating .stars svg{width:1rem;height:1rem;fill:#E89B0C;color:#E89B0C}
-.google-rating .rating-text{font-size:0.8rem;color:var(--muted-fg);margin-top:0.15rem}
-.google-rating .rating-text strong{color:var(--secondary)}
+
+/* Price peek */
 .price-peek{margin-top:1.5rem}
 .price-peek h3{font-family:'Oswald',sans-serif;font-size:1rem;color:var(--secondary);font-weight:600;text-transform:uppercase;letter-spacing:0.02em}
 .price-peek-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;margin-top:0.6rem}
 @media(min-width:640px){.price-peek-grid{grid-template-columns:1fr 1fr 1fr}}
 .price-peek-item{background:var(--muted);padding:0.5rem 0.7rem;border-radius:0.4rem;font-size:0.78rem}
 .price-peek-item strong{color:var(--primary);display:block;font-size:0.9rem}
+
+/* Social proof */
 .social-proof{margin-top:1.5rem;padding:1rem;background:rgba(217,68,82,0.04);border-radius:0.75rem;border-left:3px solid var(--primary)}
 .social-proof p{font-size:0.85rem;color:var(--muted-fg);line-height:1.6;font-style:italic}
 .social-proof .sp-meta{display:flex;align-items:center;gap:0.5rem;font-style:normal;margin-top:0.6rem}
 .social-proof .sp-avatar{width:2rem;height:2rem;border-radius:50%;background:var(--secondary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0}
 .social-proof .sp-name{font-weight:600;color:var(--secondary);font-size:0.8rem}
 .social-proof .sp-detail{font-size:0.75rem;color:var(--muted-fg)}
-.book-form-card{background:var(--bg);border:2px solid var(--primary);border-radius:1.25rem;padding:1.75rem;box-shadow:0 8px 30px rgba(217,68,82,0.08)}
-.form-header{text-align:center;margin-bottom:1.25rem}
-.form-header h2{font-family:'Oswald',sans-serif;font-size:1.3rem;font-weight:700;color:var(--secondary)}
-.form-header h2 span{color:var(--primary)}
-.form-header .form-sub{font-size:0.82rem;color:var(--muted-fg);margin-top:0.2rem}
-.form-header .form-lock{display:flex;align-items:center;justify-content:center;gap:0.3rem;font-size:0.72rem;color:var(--muted-fg);margin-top:0.4rem}
-.form-header .form-lock svg{width:0.7rem;height:0.7rem;color:var(--muted-fg)}
-.form-group{margin-top:1rem}
-.form-group label{display:block;font-size:0.82rem;font-weight:600;color:var(--secondary);margin-bottom:0.3rem}
-.form-group input,.form-group select{width:100%;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:0.5rem;font-size:0.92rem;font-family:inherit;color:var(--fg);background:var(--bg);transition:border-color 0.2s}
-.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(217,68,82,0.1)}
-.wa-submit{margin-top:1.25rem;width:100%;padding:0.85rem;font-size:1rem;font-weight:700;font-family:'Oswald',sans-serif;letter-spacing:0.03em;text-transform:uppercase;cursor:pointer;border:none;border-radius:0.5rem;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;gap:0.5rem;transition:background 0.2s,transform 0.1s}
-.wa-submit:hover{background:#1fba59}
-.wa-submit:active{transform:scale(0.98)}
-.wa-submit svg{width:1.2rem;height:1.2rem;fill:#fff}
-.call-alt{display:flex;align-items:center;justify-content:center;gap:0.4rem;margin-top:0.75rem;width:100%;padding:0.65rem;border:2px solid var(--secondary);border-radius:0.5rem;background:transparent;color:var(--secondary);font-weight:700;font-size:0.9rem;text-decoration:none;transition:background 0.2s}
-.call-alt:hover{background:rgba(27,42,74,0.05)}
-.call-alt svg{width:1rem;height:1rem;color:var(--primary)}
-.form-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem;margin-top:1rem;padding-top:0.75rem;border-top:1px solid var(--border)}
-.form-trust-item{display:flex;align-items:center;gap:0.25rem;font-size:0.7rem;color:var(--muted-fg)}
-.form-trust-item svg{width:0.75rem;height:0.75rem;color:#16a34a}
-.clinic-info{margin-top:1.25rem;padding:1rem;background:var(--muted);border-radius:0.6rem}
+
+/* Clinic info */
+.clinic-info{margin-top:1.5rem;padding:1rem;background:var(--muted);border-radius:0.6rem}
 .clinic-info p{font-size:0.82rem;color:var(--muted-fg);line-height:1.6}
 .clinic-info strong{color:var(--secondary)}
-.bottom-strip{background:var(--secondary);color:#fff;padding:1rem 0;text-align:center}
-.bottom-strip p{font-size:0.82rem;opacity:0.85}
-.bottom-strip strong{opacity:1}
+
+/* ── Below-fold sections ── */
 .benefits-section{padding:2.5rem 0;background:var(--muted)}
-.benefits-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.25rem}
-@media(min-width:640px){.benefits-grid{grid-template-columns:1fr 1fr}}
+.benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:1.25rem}
 @media(min-width:1024px){.benefits-grid{grid-template-columns:1fr 1fr 1fr 1fr}}
-.benefit-card{background:var(--bg);padding:1.25rem;border-radius:0.75rem;border:1px solid var(--border);text-align:center}
-.benefit-card .benefit-icon{width:2.5rem;height:2.5rem;border-radius:50%;background:var(--primary-light);display:flex;align-items:center;justify-content:center;margin:0 auto}
-.benefit-card .benefit-icon svg{width:1.2rem;height:1.2rem;color:var(--primary)}
-.benefit-card h3{font-size:0.9rem;font-weight:700;color:var(--secondary);margin-top:0.6rem}
-.benefit-card p{font-size:0.8rem;color:var(--muted-fg);margin-top:0.25rem;line-height:1.5}
+.benefit-card{background:var(--bg);padding:1rem;border-radius:0.75rem;border:1px solid var(--border);text-align:center}
+.benefit-card .b-icon{width:2.25rem;height:2.25rem;border-radius:50%;background:var(--primary-light);display:flex;align-items:center;justify-content:center;margin:0 auto}
+.benefit-card .b-icon svg{width:1.1rem;height:1.1rem;color:var(--primary)}
+.benefit-card h3{font-size:0.82rem;font-weight:700;color:var(--secondary);margin-top:0.5rem}
+.benefit-card p{font-size:0.75rem;color:var(--muted-fg);margin-top:0.2rem;line-height:1.4}
+
 .testimonials-section{padding:2.5rem 0}
-.testimonials-grid{display:grid;gap:1rem;margin-top:1.25rem}
+.testimonials-grid{display:grid;gap:0.75rem;margin-top:1.25rem}
 @media(min-width:768px){.testimonials-grid{grid-template-columns:1fr 1fr 1fr}}
-.testimonial-item{background:var(--muted);padding:1.25rem;border-radius:0.75rem}
-.testimonial-item .t-stars{display:flex;gap:2px;margin-bottom:0.5rem}
-.testimonial-item .t-stars svg{width:0.85rem;height:0.85rem;fill:#E89B0C}
-.testimonial-item p{font-size:0.85rem;color:var(--muted-fg);line-height:1.6;font-style:italic}
-.testimonial-item .t-name{font-style:normal;font-weight:600;color:var(--secondary);margin-top:0.5rem;font-size:0.8rem}
-.testimonial-item .t-treatment{font-size:0.72rem;color:var(--muted-fg)}
-.final-cta{padding:2rem 0;background:var(--secondary);text-align:center;color:#fff}
-.final-cta h2{font-family:'Oswald',sans-serif;font-size:1.5rem}
-.final-cta h2 span{color:var(--primary)}
-.final-cta p{font-size:0.9rem;opacity:0.8;margin-top:0.5rem}
-.final-cta .cta-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem;margin-top:1.25rem}
-.final-cta .btn-wa{display:inline-flex;align-items:center;gap:0.4rem;padding:0.75rem 1.5rem;background:#25D366;color:#fff;border-radius:0.5rem;font-family:'Oswald',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.02em;text-decoration:none;transition:background 0.2s}
-.final-cta .btn-wa:hover{background:#1fba59}
-.final-cta .btn-wa svg{width:1.1rem;height:1.1rem;fill:#fff}
-.final-cta .btn-call{display:inline-flex;align-items:center;gap:0.4rem;padding:0.75rem 1.5rem;background:transparent;border:2px solid #fff;color:#fff;border-radius:0.5rem;font-family:'Oswald',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.02em;text-decoration:none;transition:background 0.2s}
-.final-cta .btn-call:hover{background:rgba(255,255,255,0.1)}
+.t-item{background:var(--muted);padding:1rem;border-radius:0.75rem}
+.t-item .t-stars{display:flex;gap:2px;margin-bottom:0.4rem}
+.t-item .t-stars svg{width:0.8rem;height:0.8rem;fill:#E89B0C}
+.t-item p{font-size:0.82rem;color:var(--muted-fg);line-height:1.6;font-style:italic}
+.t-item .t-name{font-style:normal;font-weight:600;color:var(--secondary);margin-top:0.4rem;font-size:0.78rem}
+.t-item .t-treat{font-size:0.7rem;color:var(--muted-fg)}
+
 .section-title-sm{font-family:'Oswald',sans-serif;font-size:1.3rem;color:var(--secondary);text-align:center}
 .section-title-sm span{color:var(--primary)}
-.mobile-sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg);border-top:2px solid var(--border);padding:0.6rem 1rem;z-index:40;box-shadow:0 -4px 20px rgba(0,0,0,0.1)}
-.mobile-sticky-cta .sticky-inner{display:flex;gap:0.5rem}
-.mobile-sticky-cta a{flex:1;display:flex;align-items:center;justify-content:center;gap:0.3rem;padding:0.7rem;border-radius:0.5rem;font-family:'Oswald',sans-serif;font-weight:700;font-size:0.85rem;text-transform:uppercase;text-decoration:none}
-.mobile-sticky-cta .sticky-wa{background:#25D366;color:#fff}
-.mobile-sticky-cta .sticky-wa svg{width:1rem;height:1rem;fill:#fff}
-.mobile-sticky-cta .sticky-call{background:var(--secondary);color:#fff}
-.mobile-sticky-cta .sticky-call svg{width:1rem;height:1rem;color:var(--primary)}
-@media(max-width:767px){.mobile-sticky-cta.visible{display:block}}
+
+/* Final CTA */
+.final-cta{padding:2rem 0;background:var(--secondary);text-align:center;color:#fff}
+.final-cta h2{font-family:'Oswald',sans-serif;font-size:1.4rem}
+.final-cta h2 span{color:var(--primary)}
+.final-cta p{font-size:0.85rem;opacity:0.8;margin-top:0.4rem}
+.final-cta .fc-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:0.6rem;margin-top:1rem}
+.final-cta .fc-wa{display:inline-flex;align-items:center;gap:0.4rem;padding:0.7rem 1.5rem;background:#25D366;color:#fff;border-radius:0.5rem;font-family:'Oswald',sans-serif;font-weight:700;font-size:0.95rem;text-transform:uppercase;text-decoration:none;transition:background 0.2s}
+.final-cta .fc-wa:hover{background:#1fba59}
+.final-cta .fc-wa svg{width:1rem;height:1rem;fill:#fff}
+.final-cta .fc-call{display:inline-flex;align-items:center;gap:0.4rem;padding:0.7rem 1.5rem;border:2px solid #fff;color:#fff;border-radius:0.5rem;font-family:'Oswald',sans-serif;font-weight:700;font-size:0.95rem;text-transform:uppercase;text-decoration:none;transition:background 0.2s}
+.final-cta .fc-call:hover{background:rgba(255,255,255,0.1)}
+
+.bottom-strip{background:var(--secondary);color:#fff;padding:0.75rem 0;text-align:center;border-top:1px solid rgba(255,255,255,0.1)}
+.bottom-strip p{font-size:0.78rem;opacity:0.85}
+.bottom-strip strong{opacity:1}
+
+/* ── Mobile Sticky Bar — ALWAYS visible on phones ── */
+.mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg);border-top:2px solid var(--border);padding:0.5rem 0.75rem;z-index:50;box-shadow:0 -4px 20px rgba(0,0,0,0.12)}
+.mobile-sticky .ms-inner{display:flex;gap:0.5rem}
+.mobile-sticky a{flex:1;display:flex;align-items:center;justify-content:center;gap:0.3rem;padding:0.65rem;border-radius:0.5rem;font-family:'Oswald',sans-serif;font-weight:700;font-size:0.85rem;text-transform:uppercase;text-decoration:none}
+.mobile-sticky .ms-wa{background:#25D366;color:#fff}
+.mobile-sticky .ms-wa svg{width:1rem;height:1rem;fill:#fff}
+.mobile-sticky .ms-call{background:var(--secondary);color:#fff}
+.mobile-sticky .ms-call svg{width:0.9rem;height:0.9rem}
+@media(max-width:767px){.mobile-sticky{display:block}body{padding-bottom:4rem}}
 </style>
 
 <!-- Google tag (gtag.js) -->
@@ -137,18 +165,56 @@
 <main>
 <section class="book-hero">
 <div class="container">
-<div class="book-grid">
+<div class="hero-layout">
 
-  <!-- LEFT -->
-  <div class="book-left">
-    <a href="/" style="font-family:Oswald,sans-serif;font-size:1.05rem;font-weight:700;color:var(--secondary);text-decoration:none">Dr. Mahima's <span style="color:var(--primary)">Dental Care</span></a>
-    <h1 style="margin-top:0.75rem">Kota's Most Trusted <span>Dental Clinic</span></h1>
-    <p class="lead">13+ years experience. 5,000+ happy patients. Transparent pricing — the price we quote is the price you pay. Zero hidden charges.</p>
+  <!-- ════ CTA CARD — shows FIRST on mobile ════ -->
+  <div class="cta-card" style="order:1">
+    <a href="/" class="trust-content logo-link" style="display:inline-block;margin-bottom:0.5rem;font-size:0.95rem">Dr. Mahima's <span>Dental Care</span></a>
 
-    <div class="urgency-bar">
+    <h1>Book Your <span>Dental Appointment</span></h1>
+    <p class="cta-sub">Kota's most transparent clinic. <strong>13+ years</strong>, <strong>5,000+ patients</strong>. The price we quote is the price you pay.</p>
+
+    <!-- Urgency -->
+    <div class="cta-urgency">
       <span class="pulse"></span>
-      <p>3 appointment slots remaining today</p>
+      <p>Same-day appointments available</p>
     </div>
+
+    <!-- THE TWO BUTTONS -->
+    <div class="cta-buttons">
+      <a href="https://wa.me/917597747711?text=Hi%20Dr.%20Mahima%2C%20I%20saw%20your%20ad%20on%20Google%20and%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="btn-wa-big" id="waBtn" onclick="trackWA()">
+        <svg viewBox="0 0 32 32"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.9 15.9 0 0016.004 32C24.826 32 32 24.826 32 16.004 32 7.176 24.826 0 16.004 0zm9.35 22.606c-.394 1.108-2.31 2.058-3.226 2.19-.862.118-1.954.168-3.154-.198a28.83 28.83 0 01-2.856-1.054c-5.03-2.172-8.312-7.258-8.564-7.594-.252-.336-2.058-2.738-2.058-5.222s1.302-3.71 1.764-4.216c.462-.504 1.008-.63 1.344-.63.336 0 .672.004.966.018.31.014.726-.118 1.134.866.42.998 1.428 3.486 1.554 3.738.126.252.21.546.042.882s-.252.546-.504.84c-.252.294-.528.654-.756.882-.252.252-.516.526-.222 1.03.294.504 1.308 2.154 2.808 3.492 1.932 1.722 3.558 2.256 4.062 2.508.504.252.798.21 1.092-.126s1.26-1.47 1.596-1.974c.336-.504.672-.42 1.134-.252.462.168 2.946 1.39 3.45 1.642.504.252.84.378.966.588.126.21.126 1.218-.268 2.326z"/></svg>
+        Book on WhatsApp
+      </a>
+      <a href="tel:+917597747711" class="btn-call-big">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call Now — +91 75977 47711
+      </a>
+    </div>
+
+    <!-- Google rating -->
+    <div class="cta-google">
+      <svg class="g-icon" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <span class="g-text"><strong>4.9</strong> · 100+ reviews</span>
+    </div>
+
+    <!-- Trust micro-text -->
+    <div class="cta-trust">
+      <span class="cta-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No spam</span>
+      <span class="cta-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Instant reply</span>
+      <span class="cta-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Free to cancel</span>
+    </div>
+  </div>
+
+  <!-- ════ TRUST CONTENT — shows SECOND on mobile, LEFT on desktop ════ -->
+  <div class="trust-content" style="order:2">
 
     <div class="trust-badges">
       <span class="trust-badge"><svg class="check" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 13+ Years</span>
@@ -157,20 +223,6 @@
       <span class="trust-badge"><svg class="shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> 100% Sterile</span>
       <span class="trust-badge"><svg class="check" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Open Sundays</span>
       <span class="trust-badge"><svg class="check" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> BDS &amp; MDS</span>
-    </div>
-
-    <div class="google-rating">
-      <svg class="g-icon" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-      <div>
-        <div class="stars">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <p class="rating-text"><strong>4.9/5</strong> on Google · 100+ reviews</p>
-      </div>
     </div>
 
     <div class="price-peek">
@@ -196,73 +248,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- RIGHT: Form -->
-  <div>
-    <div class="book-form-card">
-      <div class="form-header">
-        <h2>Book via <span>WhatsApp</span></h2>
-        <p class="form-sub">Fill in your details — we'll confirm your slot instantly</p>
-        <p class="form-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Your information stays private</p>
-      </div>
-
-      <div class="form-group">
-        <label for="name">Your Name *</label>
-        <input type="text" id="name" required placeholder="Enter your full name" autocomplete="name">
-      </div>
-
-      <div class="form-group">
-        <label for="phone">Phone Number *</label>
-        <input type="tel" id="phone" required placeholder="e.g. 98291 XXXXX" autocomplete="tel">
-      </div>
-
-      <div class="form-group">
-        <label for="treatment">What do you need? *</label>
-        <select id="treatment" required>
-          <option value="" disabled selected>Select a treatment</option>
-          <option value="General Checkup / Consultation (₹200)">General Checkup / Consultation (₹200)</option>
-          <option value="Toothache / Pain (Emergency)">Toothache / Pain (Emergency)</option>
-          <option value="Cavity Filling (from ₹500)">Cavity Filling (from ₹500)</option>
-          <option value="Tooth Extraction (from ₹500)">Tooth Extraction (from ₹500)</option>
-          <option value="Teeth Cleaning (from ₹1,500)">Teeth Cleaning (from ₹1,500)</option>
-          <option value="Root Canal Treatment (from ₹2,500)">Root Canal Treatment (from ₹2,500)</option>
-          <option value="Crown / Cap (from ₹1,500)">Crown / Cap (from ₹1,500)</option>
-          <option value="Dental Bridge (from ₹4,500)">Dental Bridge (from ₹4,500)</option>
-          <option value="Dental Implant (from ₹15,000)">Dental Implant (from ₹15,000)</option>
-          <option value="Braces / Aligners (from ₹15,000)">Braces / Aligners (from ₹15,000)</option>
-          <option value="Teeth Whitening (from ₹3,000)">Teeth Whitening (from ₹3,000)</option>
-          <option value="Children's Dental Care">Children's Dental Care</option>
-          <option value="Other / Not Sure">Other / Not Sure</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="time">Preferred Time</label>
-        <select id="time">
-          <option value="As soon as possible">As soon as possible</option>
-          <option value="Morning (10 AM – 2 PM)">Morning (10 AM – 2 PM)</option>
-          <option value="Evening (5 – 8 PM)">Evening (5 – 8 PM)</option>
-          <option value="Sunday (10 AM – 1 PM)">Sunday (10 AM – 1 PM)</option>
-        </select>
-      </div>
-
-      <button type="button" onclick="submitToWhatsApp()" class="wa-submit" id="waSubmitBtn">
-        <svg viewBox="0 0 32 32"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.9 15.9 0 0016.004 32C24.826 32 32 24.826 32 16.004 32 7.176 24.826 0 16.004 0zm9.35 22.606c-.394 1.108-2.31 2.058-3.226 2.19-.862.118-1.954.168-3.154-.198a28.83 28.83 0 01-2.856-1.054c-5.03-2.172-8.312-7.258-8.564-7.594-.252-.336-2.058-2.738-2.058-5.222s1.302-3.71 1.764-4.216c.462-.504 1.008-.63 1.344-.63.336 0 .672.004.966.018.31.014.726-.118 1.134.866.42.998 1.428 3.486 1.554 3.738.126.252.21.546.042.882s-.252.546-.504.84c-.252.294-.528.654-.756.882-.252.252-.516.526-.222 1.03.294.504 1.308 2.154 2.808 3.492 1.932 1.722 3.558 2.256 4.062 2.508.504.252.798.21 1.092-.126s1.26-1.47 1.596-1.974c.336-.504.672-.42 1.134-.252.462.168 2.946 1.39 3.45 1.642.504.252.84.378.966.588.126.21.126 1.218-.268 2.326z"/></svg>
-        Book Appointment on WhatsApp
-      </button>
-
-      <a href="tel:+917597747711" class="call-alt">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Or Call: +91 75977 47711
-      </a>
-
-      <div class="form-trust">
-        <span class="form-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No spam</span>
-        <span class="form-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Instant reply</span>
-        <span class="form-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Free to cancel</span>
-      </div>
-    </div>
 
     <div class="clinic-info">
       <p><strong>Dr. Mahima's Dental Care</strong><br>
@@ -282,24 +267,24 @@
     <h2 class="section-title-sm">Why Patients <span>Choose Us</span></h2>
     <div class="benefits-grid">
       <div class="benefit-card">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h3>100% Sterile</h3>
-        <p>Every instrument autoclaved. Your safety is non-negotiable.</p>
+        <p>Every instrument autoclaved.</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <div class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
         <h3>No Hidden Costs</h3>
-        <p>We discuss every rupee before treatment begins.</p>
+        <p>Every rupee discussed upfront.</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <h3>Zero Wait Time</h3>
-        <p>Pre-scheduled so you're seen on time, every time.</p>
+        <p>Seen on time, every time.</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        <h3>Painless Treatment</h3>
-        <p>Advanced numbing for a virtually pain-free experience.</p>
+        <div class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Painless</h3>
+        <p>Advanced numbing techniques.</p>
       </div>
     </div>
   </div>
@@ -310,23 +295,23 @@
   <div class="container">
     <h2 class="section-title-sm">What <span>Patients Say</span></h2>
     <div class="testimonials-grid">
-      <div class="testimonial-item">
+      <div class="t-item">
         <div class="t-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        <p>"Honest guidance and gentle care. No unnecessary procedures. Truly the best dental clinic in Kota."</p>
+        <p>"Honest guidance and gentle care. No unnecessary procedures. Best dental clinic in Kota."</p>
         <p class="t-name">Ramswaroop S.</p>
-        <p class="t-treatment">Root Canal Treatment</p>
+        <p class="t-treat">Root Canal</p>
       </div>
-      <div class="testimonial-item">
+      <div class="t-item">
         <div class="t-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        <p>"Transparent pricing and the doctors explain everything clearly before starting. Best clinic for implants."</p>
+        <p>"Transparent pricing. Doctors explain everything clearly before starting. Best for implants."</p>
         <p class="t-name">Dinesh D.</p>
-        <p class="t-treatment">Dental Implant</p>
+        <p class="t-treat">Dental Implant</p>
       </div>
-      <div class="testimonial-item">
+      <div class="t-item">
         <div class="t-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        <p>"My kids love visiting Dr. Mahima! She is so patient and gentle. The clinic is spotlessly clean."</p>
+        <p>"My kids love visiting Dr. Mahima! She is so patient and gentle. Spotlessly clean clinic."</p>
         <p class="t-name">Sunita M.</p>
-        <p class="t-treatment">Children's Dental Care</p>
+        <p class="t-treat">Children's Care</p>
       </div>
     </div>
   </div>
@@ -336,87 +321,50 @@
 <section class="final-cta">
   <div class="container">
     <h2>Ready to Fix Your <span>Smile?</span></h2>
-    <p>Same-day appointments available. No waiting, no hidden charges.</p>
-    <div class="cta-buttons">
-      <a href="#" onclick="scrollToForm();return false;" class="btn-wa">
+    <p>Same-day appointments. No waiting. No hidden charges.</p>
+    <div class="fc-buttons">
+      <a href="https://wa.me/917597747711?text=Hi%20Dr.%20Mahima%2C%20I%20saw%20your%20ad%20on%20Google%20and%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="fc-wa" onclick="trackWA()">
         <svg viewBox="0 0 32 32"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.9 15.9 0 0016.004 32C24.826 32 32 24.826 32 16.004 32 7.176 24.826 0 16.004 0zm9.35 22.606c-.394 1.108-2.31 2.058-3.226 2.19-.862.118-1.954.168-3.154-.198a28.83 28.83 0 01-2.856-1.054c-5.03-2.172-8.312-7.258-8.564-7.594-.252-.336-2.058-2.738-2.058-5.222s1.302-3.71 1.764-4.216c.462-.504 1.008-.63 1.344-.63.336 0 .672.004.966.018.31.014.726-.118 1.134.866.42.998 1.428 3.486 1.554 3.738.126.252.21.546.042.882s-.252.546-.504.84c-.252.294-.528.654-.756.882-.252.252-.516.526-.222 1.03.294.504 1.308 2.154 2.808 3.492 1.932 1.722 3.558 2.256 4.062 2.508.504.252.798.21 1.092-.126s1.26-1.47 1.596-1.974c.336-.504.672-.42 1.134-.252.462.168 2.946 1.39 3.45 1.642.504.252.84.378.966.588.126.21.126 1.218-.268 2.326z"/></svg>
         Book on WhatsApp
       </a>
-      <a href="tel:+917597747711" class="btn-call">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:1rem;height:1rem"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Call Now
-      </a>
+      <a href="tel:+917597747711" class="fc-call">Call Now</a>
     </div>
   </div>
 </section>
 
 <div class="bottom-strip">
   <div class="container">
-    <p><strong>Transparent pricing.</strong> The price we quote is the price you pay. No hidden charges — ever. <a href="/pricing/" style="color:var(--primary);font-weight:600">View all prices →</a></p>
+    <p><strong>Transparent pricing.</strong> The price we quote is the price you pay. <a href="/pricing/" style="color:var(--primary);font-weight:600">View all prices →</a></p>
   </div>
 </div>
 </main>
 
-<footer style="padding:1.25rem 0;text-align:center;font-size:0.78rem;color:var(--muted-fg)">
-  <p>&copy; 2026 Dr. Mahima's Dental Care. <a href="/" style="color:var(--primary)">Home</a> · <a href="/services/" style="color:var(--primary)">Services</a> · <a href="/pricing/" style="color:var(--primary)">Pricing</a> · <a href="/contact/" style="color:var(--primary)">Contact</a></p>
+<footer style="padding:1rem 0;text-align:center;font-size:0.75rem;color:var(--muted-fg)">
+  <p>&copy; 2026 Dr. Mahima's Dental Care. <a href="/" style="color:var(--primary)">Home</a> · <a href="/pricing/" style="color:var(--primary)">Pricing</a> · <a href="/contact/" style="color:var(--primary)">Contact</a></p>
 </footer>
 
-<!-- Mobile Sticky CTA -->
-<div class="mobile-sticky-cta" id="mobileCta">
-  <div class="sticky-inner">
-    <a href="#" onclick="scrollToForm();return false;" class="sticky-wa">
+<!-- ══ MOBILE STICKY BAR — always visible on phones ══ -->
+<div class="mobile-sticky">
+  <div class="ms-inner">
+    <a href="https://wa.me/917597747711?text=Hi%20Dr.%20Mahima%2C%20I%20saw%20your%20ad%20on%20Google%20and%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="ms-wa" onclick="trackWA()">
       <svg viewBox="0 0 32 32"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.9 15.9 0 0016.004 32C24.826 32 32 24.826 32 16.004 32 7.176 24.826 0 16.004 0zm9.35 22.606c-.394 1.108-2.31 2.058-3.226 2.19-.862.118-1.954.168-3.154-.198a28.83 28.83 0 01-2.856-1.054c-5.03-2.172-8.312-7.258-8.564-7.594-.252-.336-2.058-2.738-2.058-5.222s1.302-3.71 1.764-4.216c.462-.504 1.008-.63 1.344-.63.336 0 .672.004.966.018.31.014.726-.118 1.134.866.42.998 1.428 3.486 1.554 3.738.126.252.21.546.042.882s-.252.546-.504.84c-.252.294-.528.654-.756.882-.252.252-.516.526-.222 1.03.294.504 1.308 2.154 2.808 3.492 1.932 1.722 3.558 2.256 4.062 2.508.504.252.798.21 1.092-.126s1.26-1.47 1.596-1.974c.336-.504.672-.42 1.134-.252.462.168 2.946 1.39 3.45 1.642.504.252.84.378.966.588.126.21.126 1.218-.268 2.326z"/></svg>
-      Book WhatsApp
+      WhatsApp
     </a>
-    <a href="tel:+917597747711" class="sticky-call">
+    <a href="tel:+917597747711" class="ms-call">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      Call Now
+      Call
     </a>
   </div>
 </div>
 
 <script>
-function submitToWhatsApp() {
-  var name = document.getElementById('name').value.trim();
-  var phone = document.getElementById('phone').value.trim();
-  var treatment = document.getElementById('treatment').value;
-  var time = document.getElementById('time').value;
-
-  if (!name) { document.getElementById('name').focus(); alert('Please enter your name'); return; }
-  if (!phone) { document.getElementById('phone').focus(); alert('Please enter your phone number'); return; }
-  if (!treatment) { document.getElementById('treatment').focus(); alert('Please select a treatment'); return; }
-
-  var msg = '📋 *New Appointment Request*\n\n';
-  msg += '👤 *Name:* ' + name + '\n';
-  msg += '📱 *Phone:* ' + phone + '\n';
-  msg += '🦷 *Treatment:* ' + treatment + '\n';
-  msg += '🕐 *Preferred Time:* ' + time + '\n\n';
-  msg += 'Please confirm my appointment slot. Thank you!';
-
+// GA4 WhatsApp tracking
+function trackWA() {
   if (typeof gtag === 'function') {
     gtag('event', 'whatsapp_click', {
-      'button_type': 'book_form_submit',
-      'treatment': treatment
+      'button_type': 'book_page_direct'
     });
   }
-
-  setTimeout(function() {
-    window.open('https://wa.me/917597747711?text=' + encodeURIComponent(msg), '_blank');
-  }, 300);
-}
-
-function scrollToForm() {
-  document.getElementById('name').scrollIntoView({ behavior: 'smooth', block: 'center' });
-  setTimeout(function() { document.getElementById('name').focus(); }, 500);
-}
-
-var mobileCta = document.getElementById('mobileCta');
-var formCard = document.querySelector('.book-form-card');
-if (mobileCta && formCard) {
-  window.addEventListener('scroll', function() {
-    var rect = formCard.getBoundingClientRect();
-    mobileCta.classList.toggle('visible', rect.bottom < 0);
-  });
 }
 </script>
 
