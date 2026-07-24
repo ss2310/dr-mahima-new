@@ -72,7 +72,12 @@
       '<path d="M72 56 q7 -9 14 -2" stroke="#fff" stroke-width="4" fill="none" opacity=".9" stroke-linecap="round"/></g>' +
       '<path class="sb-m-spark" d="M156 40 l4 11 11 4 -11 4 -4 11 -4 -11 -11 -4 11 -4z" fill="hsl(38 92% 48%)"/>' +
       '</svg>';
-    hero.appendChild(mascot);
+    var formCard = document.querySelector('.hero-form-card');
+    if (formCard) {
+      mascot.classList.add('sb-mascot-docked');
+      formCard.style.position = 'relative';
+      formCard.appendChild(mascot);
+    } else { hero.appendChild(mascot); }
   }
 
   /* ---------- 4. Chapter eyebrows above section titles ---------- */

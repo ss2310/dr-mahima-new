@@ -61,3 +61,124 @@ h2[style*="text-align:left"] ~ .sb-chapter, .sb-chapter + h2[style*="text-align:
   .sb-kinetic .sb-w{ animation:none; opacity:1; transform:none; }
   .sb-float, .sb-m-body, .sb-m-eyes, .sb-m-spark{ animation:none; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   V2 — closing the gap with the storybook demo
+   ═══════════════════════════════════════════════════════════ */
+
+/* 1. HERO HEADLINE — sentence-case serif, gradient key phrase, drawn underline */
+.hero h1{
+  text-transform:none !important;
+  font-weight:600;
+  letter-spacing:-0.025em;
+  line-height:1.04;
+  font-size:clamp(2.9rem, 5.4vw, 4.6rem);
+}
+.hero h1 span{
+  background:linear-gradient(115deg, hsl(352 75% 62%), hsl(352 68% 50%) 55%, hsl(38 92% 48%));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  position:relative; display:inline-block; padding-bottom:.08em;
+}
+.hero h1 span::after{
+  content:""; position:absolute; left:0; right:0; bottom:-2px; height:.14em;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M4 10 Q100 2 196 8' fill='none' stroke='hsl(38 92%25 48%25)' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/100% 100%;
+}
+.hero-badge{ border-radius:999px; background:#fff;
+  border:1.5px solid hsl(38 92% 48% / .5);
+  box-shadow:0 8px 22px -12px hsl(38 92% 48% / .6); }
+
+/* 2. HERO ATMOSPHERE — glow washes + soft stage */
+.hero{
+  position:relative; overflow:hidden;
+  background:
+    radial-gradient(46% 52% at 12% 18%, hsl(38 92% 48% / .12), transparent 62%),
+    radial-gradient(42% 48% at 88% 72%, hsl(352 68% 55% / .12), transparent 62%),
+    radial-gradient(38% 40% at 55% 105%, hsl(352 68% 55% / .08), transparent 60%),
+    linear-gradient(180deg, hsl(352 55% 96%), hsl(28 55% 98%));
+}
+
+/* 3. FORM CARD — dark slab -> warm storybook card */
+.hero-form-card{
+  background:#fff !important; color:hsl(345 25% 16%) !important;
+  border-radius:24px !important;
+  border:1px solid hsl(345 16% 88%);
+  box-shadow:0 34px 70px -34px hsl(352 55% 40% / .42) !important;
+  position:relative;
+}
+.hero-form-card::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:6px;
+  border-radius:24px 24px 0 0;
+  background:linear-gradient(90deg, hsl(352 68% 55%), hsl(38 92% 48%));
+}
+.hero-form-card h2{ text-transform:none; color:hsl(345 25% 16%); letter-spacing:-0.01em; }
+.hero-form-card h2 span{
+  background:linear-gradient(115deg, hsl(352 75% 62%), hsl(352 68% 50%));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.hero-form-card p{ color:hsl(345 8% 45%); opacity:1; }
+.hero-form-card input, .hero-form-card select{
+  background:hsl(28 55% 98%) !important; color:hsl(345 25% 16%) !important;
+  border:1.5px solid hsl(345 16% 86%) !important; border-radius:12px !important;
+}
+.hero-form-card input::placeholder{ color:hsl(345 6% 60%); }
+.hero-form-card input:focus, .hero-form-card select:focus{
+  border-color:hsl(352 68% 55%) !important; outline:none;
+}
+.hero-form-card a{ color:hsl(352 70% 44%); }
+.hero-form-card .btn-primary, .hero-form-card button{
+  border-radius:999px !important;
+}
+
+/* mascot peeks over the form card instead of floating loose */
+.sb-mascot{ right:auto; left:auto; bottom:auto; }
+.sb-mascot-docked{
+  position:absolute; top:-92px; right:18px; width:104px; pointer-events:none; z-index:2;
+}
+@media (max-width:1023px){ .sb-mascot-docked{ display:none; } }
+
+/* 4. SECTION WASHES — alternate soft rose + glow blobs */
+.section-muted{
+  background:
+    radial-gradient(50% 60% at 85% 10%, hsl(38 92% 48% / .08), transparent 60%),
+    radial-gradient(46% 52% at 8% 90%, hsl(352 68% 55% / .07), transparent 60%),
+    hsl(352 50% 96%) !important;
+}
+.section:not(.section-muted):not(.hero){
+  background:
+    radial-gradient(40% 46% at 92% 20%, hsl(352 68% 55% / .05), transparent 60%),
+    hsl(28 55% 98%);
+}
+
+/* 5. DOCTOR PHOTO — framed storybook portrait */
+.doctor-img{ position:relative; }
+.doctor-img img{
+  border-radius:26px; transform:rotate(-1.4deg);
+  border:6px solid #fff;
+  box-shadow:0 34px 68px -34px hsl(352 55% 40% / .45);
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.doctor-img:hover img{ transform:rotate(0deg) scale(1.015); }
+
+/* 6. TESTIMONIALS — storybook quote cards */
+.testimonial-card{ position:relative; padding-top:2.6rem !important; }
+.testimonial-card::before{
+  content:"\201C"; position:absolute; top:6px; left:22px;
+  font-family:'Fraunces',Georgia,serif; font-size:64px; line-height:1;
+  color:hsl(352 68% 55% / .35);
+}
+.testimonial-text{ font-family:'Fraunces',Georgia,serif; font-weight:500; font-size:1.05rem; line-height:1.5; }
+
+/* 7. VIDEO STORY CARDS — filmstrip feel */
+.story-card{ border-radius:20px; border:1px solid hsl(345 16% 88%);
+  box-shadow:0 22px 44px -30px hsl(345 40% 30% / .45);
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1); }
+.story-card:hover{ transform:translateY(-6px) rotate(-.6deg); }
+.story-play-btn{ background:hsl(352 68% 55%) !important; box-shadow:0 10px 26px -8px hsl(352 68% 55% / .7); }
+
+/* 8. mini b-roll frames get the demo's runtime chip */
+.sb-mini{ position:relative; }
+.sb-mini::after{
+  content:"\25CF  LOOP"; position:absolute; top:8px; right:8px;
+  font-family:ui-monospace,monospace; font-size:8.5px; letter-spacing:.1em;
+  background:hsl(345 25% 16% / .78); color:#fff; border-radius:999px; padding:3px 8px;
+}
