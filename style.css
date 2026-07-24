@@ -6,25 +6,27 @@
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --primary: #D94452;
-  --primary-light: rgba(217,68,82,0.1);
+  --primary: hsl(352 68% 55%);
+  --primary-light: hsl(352 68% 55% / 0.09);
   --primary-fg: #fff;
-  --secondary: #1B2A4A;
+  --secondary: hsl(345 30% 18%);
   --secondary-fg: #fff;
-  --bg: #fff;
-  --fg: #1B2A4A;
-  --muted: #f1f5f9;
-  --muted-fg: #4a5568;
-  --border: #e2e8f0;
+  --bg: hsl(28 55% 98%);
+  --fg: hsl(345 25% 16%);
+  --muted: hsl(352 45% 96%);
+  --muted-fg: hsl(345 8% 40%);
+  --border: hsl(345 16% 88%);
   --card: #fff;
-  --accent: #E89B0C;
-  --radius: 0.75rem;
+  --accent: hsl(38 92% 48%);
+  --radius: 1.1rem;
+  --pop: cubic-bezier(.34,1.56,.64,1);
+  --glide: cubic-bezier(.22,1,.36,1);
 }
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:'Montserrat',system-ui,sans-serif;color:var(--fg);background:var(--bg);line-height:1.6;font-size:16px}
+body{font-family:'Nunito Sans',system-ui,sans-serif;color:var(--fg);background:var(--bg);line-height:1.6;font-size:16px}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
-.font-display{font-family:'Oswald',system-ui,sans-serif}
+.font-display{font-family:'Fraunces',system-ui,sans-serif}
 .container{width:100%;max-width:1400px;margin:0 auto;padding:0 1rem}
 @media(min-width:1024px){.container{padding:0 2rem}}
 
@@ -36,9 +38,9 @@ a{color:inherit;text-decoration:none}
 .navbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
 .navbar.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.08)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 0}
-.nav-logo{font-family:'Oswald',sans-serif;font-size:1.15rem;font-weight:700;color:var(--secondary);text-transform:uppercase;letter-spacing:0.02em}
+.nav-logo{font-family:'Fraunces',sans-serif;font-size:1.15rem;font-weight:700;color:var(--secondary);text-transform:uppercase;letter-spacing:0.02em}
 .nav-logo span{color:var(--primary)}
-.nav-phone{display:none;align-items:center;gap:0.5rem;font-family:'Oswald',sans-serif;font-size:1.25rem;font-weight:700;color:var(--secondary);transition:color .2s}
+.nav-phone{display:none;align-items:center;gap:0.5rem;font-family:'Fraunces',sans-serif;font-size:1.25rem;font-weight:700;color:var(--secondary);transition:color .2s}
 .nav-phone:hover{color:var(--primary)}
 .nav-phone svg{color:var(--primary)}
 @media(min-width:768px){.nav-phone{display:flex}}
@@ -78,7 +80,7 @@ a{color:inherit;text-decoration:none}
 @media(min-width:1024px){.hero-grid{grid-template-columns:1fr 1fr}}
 .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;border:1px solid rgba(217,68,82,0.3);border-radius:0.375rem;padding:0.5rem 1rem;margin-bottom:1.5rem}
 .hero-badge span{font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--primary)}
-.hero h1{font-family:'Oswald',sans-serif;font-size:3.2rem;font-weight:700;color:var(--secondary);line-height:1;text-transform:uppercase;letter-spacing:-0.01em}
+.hero h1{font-family:'Fraunces',sans-serif;font-size:3.2rem;font-weight:700;color:var(--secondary);line-height:1;text-transform:uppercase;letter-spacing:-0.01em}
 @media(min-width:640px){.hero h1{font-size:3.8rem}}
 @media(min-width:1024px){.hero h1{font-size:4.5rem}}
 .hero h1 span{color:var(--primary)}
@@ -96,7 +98,7 @@ a{color:inherit;text-decoration:none}
 /* Dark booking form */
 .hero-form-card{background:var(--secondary);color:#fff;border-radius:0.75rem;padding:2rem;box-shadow:0 20px 60px rgba(0,0,0,0.2);max-width:28rem;margin:0 auto}
 @media(min-width:1024px){.hero-form-card{margin:0 0 0 auto}}
-.hero-form-card h2{font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:700;text-transform:uppercase;text-align:center}
+.hero-form-card h2{font-family:'Fraunces',sans-serif;font-size:1.5rem;font-weight:700;text-transform:uppercase;text-align:center}
 .hero-form-card h2 span{color:var(--primary)}
 .hero-form-card p{text-align:center;font-size:0.85rem;opacity:0.7;margin-top:0.25rem}
 .hero-form-card form{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem}
@@ -109,7 +111,7 @@ a{color:inherit;text-decoration:none}
 .section{padding:5rem 0}
 .section-muted{background:var(--muted)}
 .section-dark{background:var(--secondary);color:#fff}
-.section-title{font-family:'Oswald',sans-serif;font-size:1.9rem;font-weight:700;color:var(--secondary);text-transform:uppercase;letter-spacing:0.02em;text-align:center}
+.section-title{font-family:'Fraunces',sans-serif;font-size:1.9rem;font-weight:700;color:var(--secondary);text-transform:uppercase;letter-spacing:0.02em;text-align:center}
 @media(min-width:640px){.section-title{font-size:2.3rem}}
 .section-title span{color:var(--primary)}
 .section-sub{text-align:center;color:var(--muted-fg);margin-top:0.75rem;max-width:36rem;margin-left:auto;margin-right:auto}
@@ -160,13 +162,13 @@ tbody tr:hover{background:rgba(217,68,82,0.04)}
 @media(min-width:640px){.steps{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.steps{grid-template-columns:repeat(4,1fr)}}
 .step{position:relative;padding:1.5rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--card)}
-.step-num{font-family:'Oswald',sans-serif;font-size:0.8rem;font-weight:700;text-transform:uppercase;color:var(--primary);letter-spacing:0.05em}
+.step-num{font-family:'Fraunces',sans-serif;font-size:0.8rem;font-weight:700;text-transform:uppercase;color:var(--primary);letter-spacing:0.05em}
 .step h3{font-weight:700;color:var(--secondary);margin-top:0.5rem;font-size:1.05rem}
 .step p{font-size:0.875rem;color:var(--muted-fg);margin-top:0.5rem;line-height:1.6}
 
 /* ── Emergency CTA ── */
 .emergency-cta{background:var(--secondary);padding:3rem 0;text-align:center}
-.emergency-cta h2{font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.02em}
+.emergency-cta h2{font-family:'Fraunces',sans-serif;font-size:1.5rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.02em}
 @media(min-width:640px){.emergency-cta h2{font-size:1.9rem}}
 .emergency-cta h2 span{color:var(--primary)}
 .emergency-cta p{color:rgba(255,255,255,0.8);margin-top:0.75rem}
@@ -182,7 +184,7 @@ tbody tr:hover{background:rgba(217,68,82,0.04)}
 .about-text a{color:var(--primary);font-weight:500;text-decoration:underline;text-underline-offset:3px}
 .about-text a:hover{opacity:0.8}
 .about-stats{display:flex;gap:2rem;margin-top:2rem}
-.about-stat-num{font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:var(--primary)}
+.about-stat-num{font-family:'Fraunces',sans-serif;font-size:2rem;font-weight:700;color:var(--primary)}
 .about-stat-label{font-size:0.8rem;color:var(--muted-fg);text-transform:uppercase;letter-spacing:0.05em;font-weight:600}
 
 /* ── Testimonials ── */
@@ -255,7 +257,7 @@ footer li a:hover{color:var(--primary);opacity:1}
 /* ── Page Hero (Service/Inner pages) ── */
 .page-hero{padding:8rem 0 3rem;background:linear-gradient(to bottom,rgba(217,68,82,0.04),var(--bg))}
 @media(min-width:1024px){.page-hero{padding:9rem 0 4rem}}
-.page-hero h1{font-family:'Oswald',sans-serif;font-size:2.5rem;font-weight:700;color:var(--secondary);line-height:1.1}
+.page-hero h1{font-family:'Fraunces',sans-serif;font-size:2.5rem;font-weight:700;color:var(--secondary);line-height:1.1}
 @media(min-width:640px){.page-hero h1{font-size:3rem}}
 @media(min-width:1024px){.page-hero h1{font-size:3.5rem}}
 .page-hero h1 span{color:var(--primary)}
@@ -280,14 +282,14 @@ footer li a:hover{color:var(--primary);opacity:1}
 
 /* ── Visit Steps (Root Canal) ── */
 .visit-card{border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;background:var(--card);margin-top:1.5rem}
-.visit-card h3{font-family:'Oswald',sans-serif;font-weight:700;color:var(--secondary);font-size:1.2rem}
+.visit-card h3{font-family:'Fraunces',sans-serif;font-weight:700;color:var(--secondary);font-size:1.2rem}
 .visit-card h4{font-weight:600;color:var(--primary);font-size:0.85rem;text-transform:uppercase;letter-spacing:0.03em}
 .visit-card ol{padding-left:1.25rem;margin-top:0.75rem}
 .visit-card li{font-size:0.9rem;color:var(--muted-fg);line-height:1.7;margin-bottom:0.5rem}
 
 /* ── Pricing Page ── */
 .pricing-category{margin-top:2.5rem}
-.pricing-category h3{font-family:'Oswald',sans-serif;font-size:1.3rem;font-weight:700;color:var(--secondary);margin-bottom:0.75rem}
+.pricing-category h3{font-family:'Fraunces',sans-serif;font-size:1.3rem;font-weight:700;color:var(--secondary);margin-bottom:0.75rem}
 .pricing-category h3 a{color:var(--primary);font-size:0.85rem;font-weight:500;margin-left:0.5rem}
 .payment-methods{display:grid;gap:1.5rem;margin-top:2.5rem}
 @media(min-width:640px){.payment-methods{grid-template-columns:repeat(2,1fr)}}
@@ -319,3 +321,142 @@ footer li a:hover{color:var(--primary);opacity:1}
 
 /* ── SVG Icons (inline) ── */
 .icon{display:inline-block;width:1.25em;height:1.25em;vertical-align:middle;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ═══════════════════════════════════════════════════════════
+   STORYBOOK OVERRIDE LAYER — "Your Smile's Story" redesign
+   Applied after base styles; upgrades look & motion sitewide.
+   ═══════════════════════════════════════════════════════════ */
+
+body{ font-family:'Nunito Sans',system-ui,sans-serif; background:
+  radial-gradient(70% 40% at 15% 0%, hsl(38 92% 48% / .06), transparent 60%),
+  radial-gradient(60% 35% at 90% 10%, hsl(352 68% 55% / .05), transparent 60%),
+  var(--bg); }
+.font-display, h1, h2, h3, .section-title, .nav-logo{ font-family:'Fraunces',Georgia,serif; letter-spacing:-0.015em; }
+h1,h2{ line-height:1.08; }
+
+/* section-title storybook accent: chapter feel + drawn underline */
+.section-title{ text-transform:none; letter-spacing:-0.02em; font-weight:600; }
+.section-title span{ color:var(--primary); position:relative; }
+.section-title span::after{
+  content:""; position:absolute; left:0; right:0; bottom:-6px; height:6px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M4 9 Q100 1 196 7' fill='none' stroke='hsl(38 92%25 48%25)' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/100% 100%;
+}
+
+/* nav */
+.top-banner{ background:linear-gradient(100deg, hsl(352 68% 50%), hsl(352 70% 42%)); letter-spacing:0.08em; }
+.navbar{ background:hsl(28 55% 98% / .92); }
+.nav-logo{ text-transform:none; font-weight:700; font-size:1.2rem; }
+
+/* buttons: pill + pop */
+.btn{ border-radius:999px; font-weight:800; transition:transform .25s var(--pop), box-shadow .25s ease, background .2s ease; }
+.btn-primary{ background:linear-gradient(120deg, hsl(352 68% 55%), hsl(352 70% 44%));
+  box-shadow:0 14px 30px -12px hsl(352 68% 55% / .55); }
+.btn-primary:hover{ transform:translateY(-3px) scale(1.02); box-shadow:0 20px 40px -12px hsl(352 68% 55% / .6); background:linear-gradient(120deg, hsl(352 68% 55%), hsl(352 70% 44%)); }
+.btn-outline{ border-width:2px; border-radius:999px; }
+.btn-outline:hover{ transform:translateY(-2px); }
+
+/* cards: soft, lifted, playful hover */
+.card, .visit-card, .contact-card, .testimonial-card{
+  border-radius:20px; border:1px solid var(--border);
+  box-shadow:0 18px 40px -30px hsl(345 40% 30% / .35);
+  transition:transform .3s var(--pop), border-color .3s ease, box-shadow .3s ease;
+}
+.card:hover{ transform:translateY(-6px) rotate(-.35deg); border-color:hsl(38 92% 48% / .55);
+  box-shadow:0 30px 56px -30px hsl(352 55% 40% / .4); }
+.card-icon{ border-radius:14px; background:linear-gradient(135deg, var(--primary-light), hsl(38 92% 48% / .14)); }
+.card-price{ font-family:'Fraunces',serif; color:hsl(352 70% 42%); font-weight:700; }
+
+/* steps: storybook numbering */
+.step-num{ font-family:'Fraunces',serif; background:linear-gradient(135deg, var(--primary), hsl(352 70% 42%));
+  border-radius:16px; box-shadow:0 10px 24px -10px hsl(352 68% 55% / .6); }
+
+/* faq: springy plus */
+.faq-item{ border-radius:16px; border:1px solid var(--border); background:var(--card); overflow:hidden; }
+.faq-q{ font-weight:800; }
+.faq-q svg{ color:var(--primary); transition:transform .3s var(--pop); }
+
+/* tables (pricing) */
+table{ border-radius:16px; overflow:hidden; }
+thead{ background:linear-gradient(120deg, hsl(352 68% 55%), hsl(352 70% 44%)); }
+thead th{ color:#fff; font-family:'Nunito Sans',sans-serif; letter-spacing:.04em; }
+tbody tr:hover{ background:var(--muted); }
+
+/* emergency cta band */
+.emergency-cta{ background:linear-gradient(120deg, hsl(352 68% 52%), hsl(352 72% 40%)); border-radius:24px; position:relative; overflow:hidden; }
+.emergency-cta::after{ content:""; position:absolute; inset:0; background:radial-gradient(circle at 15% 20%, rgba(255,255,255,.2), transparent 50%); pointer-events:none; }
+
+/* testimonials */
+.testimonial-stars svg{ color:var(--accent); }
+.testimonial-card{ background:var(--card); }
+.testimonial-dot.active{ background:var(--primary); }
+
+/* footer: warm ink */
+footer{ background:hsl(345 30% 14%); }
+footer h3 span{ color:hsl(352 75% 66%); }
+
+/* whatsapp fab pop */
+.wa-fab{ transition:transform .3s var(--pop); }
+.wa-fab:hover{ transform:scale(1.12) rotate(6deg); }
+
+/* hero polish */
+.hero-badge{ border-radius:999px; border:1.5px solid hsl(38 92% 48% / .5); background:#fff; font-weight:800;
+  box-shadow:0 8px 22px -12px hsl(38 92% 48% / .6); }
+.hero-form-card{ border-radius:22px; box-shadow:0 34px 70px -36px hsl(345 40% 30% / .4); border:1px solid var(--border); }
+.hero-stat-icon{ color:var(--primary); }
+
+/* injected b-roll scene card (added by enhance.js on service pages) */
+.sb-scene{
+  margin:1.4rem auto 0; max-width:520px; background:#fff; border:1px solid var(--border);
+  border-radius:22px; padding:18px 18px 8px; position:relative; overflow:hidden;
+  box-shadow:0 30px 60px -34px hsl(345 40% 30% / .38);
+}
+.sb-scene::before{ content:""; position:absolute; inset:0;
+  background:radial-gradient(70% 60% at 70% 15%, hsl(38 92% 48% / .12), transparent 60%); }
+.sb-scene svg{ width:100%; height:auto; position:relative; }
+.sb-scene .sb-tag{ position:absolute; top:12px; right:12px; z-index:2; font-family:ui-monospace,monospace;
+  font-size:10px; letter-spacing:.08em; background:hsl(345 25% 16% / .82); color:#fff; border-radius:999px;
+  padding:5px 10px; display:flex; gap:6px; align-items:center; }
+.sb-scene .sb-tag i{ width:6px; height:6px; border-radius:50%; background:var(--accent); animation:sbBlink 1.4s ease-in-out infinite; }
+@keyframes sbBlink{ 0%,100%{opacity:1;} 50%{opacity:.25;} }
+
+/* scroll reveals (enhance.js adds .sb-in) */
+.sb-reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s var(--glide), transform .7s var(--glide); }
+.sb-in{ opacity:1; transform:none; }
+
+/* b-roll loop keyframes */
+.lp-screw{ animation:lpScrew 8s ease-in-out infinite; }
+@keyframes lpScrew{ 0%,4%{ transform:translateY(-140px) rotate(0); opacity:0;} 8%{opacity:1;} 28%{ transform:translateY(0) rotate(480deg);} 88%{ transform:translateY(0) rotate(480deg); opacity:1;} 100%{ transform:translateY(-140px) rotate(0); opacity:0;} }
+.lp-crown-drop{ animation:lpCrownD 8s var(--pop) infinite; }
+@keyframes lpCrownD{ 0%,34%{ transform:translateY(-110px); opacity:0;} 40%{ opacity:1;} 50%{ transform:translateY(0);} 90%{ transform:translateY(0); opacity:1;} 100%{ opacity:0;} }
+.lp-spark{ transform-origin:center; animation:lpSpark 8s ease infinite; }
+@keyframes lpSpark{ 0%,55%{ opacity:0; transform:scale(.3);} 62%{ opacity:1; transform:scale(1.1);} 85%{ opacity:1; transform:scale(1);} 100%{ opacity:0;} }
+.lp-pain{ transform-origin:center; animation:lpPain 8s ease-in-out infinite; }
+@keyframes lpPain{ 0%{ opacity:.55; transform:scale(1);} 8%{ opacity:.15; transform:scale(1.2);} 16%{ opacity:.55; transform:scale(1);} 24%{ opacity:.15; transform:scale(1.2);} 34%,100%{ opacity:0; transform:scale(1);} }
+.lp-fill-up{ transform-origin:bottom; animation:lpFillUp 8s var(--glide) infinite; }
+@keyframes lpFillUp{ 0%,34%{ transform:scaleY(0);} 58%{ transform:scaleY(1);} 92%{ transform:scaleY(1);} 100%{ transform:scaleY(0);} }
+.lp-calm-ring{ animation:lpCalmR 8s ease infinite; }
+@keyframes lpCalmR{ 0%,62%{ opacity:0;} 72%{ opacity:.8;} 92%{ opacity:.8;} 100%{ opacity:0;} }
+.lp-fade-away{ animation:lpFadeA 8s ease infinite; }
+@keyframes lpFadeA{ 0%,25%{ opacity:1;} 60%{ opacity:0;} 92%{ opacity:0;} 100%{ opacity:1;} }
+.lp-lift-out{ animation:lpLift 8s var(--glide) infinite; }
+@keyframes lpLift{ 0%,30%{ transform:translateY(0) rotate(0);} 55%{ transform:translateY(-70px) rotate(8deg); opacity:1;} 62%,92%{ transform:translateY(-70px) rotate(8deg); opacity:0;} 100%{ transform:translateY(0); opacity:1;} }
+.lp-beam-sweep{ animation:lpBeamS 8s ease-in-out infinite; }
+@keyframes lpBeamS{ 0%,14%{ opacity:0; transform:translateX(-46px);} 24%{ opacity:.8;} 50%{ opacity:.8; transform:translateX(46px);} 60%,100%{ opacity:0;} }
+.lp-t1{ animation:lpTA 8s var(--glide) infinite; } .lp-t2{ animation:lpTB 8s var(--glide) infinite; }
+.lp-t3{ animation:lpTC 8s var(--glide) infinite; } .lp-t4{ animation:lpTD 8s var(--glide) infinite; }
+@keyframes lpTA{ 0%,15%{ transform:translate(3px,10px) rotate(-12deg);} 55%,90%{ transform:none;} 100%{ transform:translate(3px,10px) rotate(-12deg);} }
+@keyframes lpTB{ 0%,15%{ transform:translate(-4px,-7px) rotate(9deg);} 55%,90%{ transform:none;} 100%{ transform:translate(-4px,-7px) rotate(9deg);} }
+@keyframes lpTC{ 0%,15%{ transform:translate(4px,-9px) rotate(11deg);} 55%,90%{ transform:none;} 100%{ transform:translate(4px,-9px) rotate(11deg);} }
+@keyframes lpTD{ 0%,15%{ transform:translate(-3px,12px) rotate(-9deg);} 55%,90%{ transform:none;} 100%{ transform:translate(-3px,12px) rotate(-9deg);} }
+.lp-wire-draw{ stroke-dasharray:300; animation:lpWireD 8s ease infinite; }
+@keyframes lpWireD{ 0%{ stroke-dashoffset:300; opacity:0;} 10%{ opacity:1;} 24%{ stroke-dashoffset:0;} 88%{ stroke-dashoffset:0; opacity:1;} 100%{ opacity:0;} }
+.lp-tint-lift{ animation:lpTintL 8s ease infinite; }
+@keyframes lpTintL{ 0%,20%{ opacity:.55;} 60%{ opacity:0;} 92%{ opacity:0;} 100%{ opacity:.55;} }
+.lp-bridge-drop{ animation:lpBridge 8s var(--pop) infinite; }
+@keyframes lpBridge{ 0%,30%{ transform:translateY(-110px); opacity:0;} 38%{ opacity:1;} 48%{ transform:translateY(0);} 90%{ transform:translateY(0); opacity:1;} 100%{ opacity:0;} }
+
+@media (prefers-reduced-motion: reduce){
+  .sb-reveal{ opacity:1; transform:none; transition:none; }
+  [class*="lp-"]{ animation:none !important; }
+  .sb-scene .sb-tag i{ animation:none; }
+}
